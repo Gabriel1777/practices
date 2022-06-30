@@ -47,15 +47,6 @@ trait ApiResponse
 		return $this->successResponse(['data' => $message, 'code' => $code], 200);
 	}
 
-	protected function responseToken($token)
-    {
-        return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => config('jwt.ttl')
-        ]);
-    }
-
 	protected function transformData($data, $transformer)
     {
     	if (isset($_GET["first"]))
